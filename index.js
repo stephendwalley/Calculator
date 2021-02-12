@@ -2,25 +2,21 @@
 
 function add(a, b) {
 	inputArray = [a + b];
-	display.textContent = inputArray;
 }
 
 function subtract(a, b) {
 	console.log(a - b);
 	inputArray = [a - b];
-	display.textContent = inputArray;
 }
 
 function multiply(a, b) {
 	console.log(a * b);
 	inputArray = [a * b];
-	display.textContent = inputArray;
 }
 
 function divide(a, b) {
 	console.log(a / b);
 	inputArray = [a / b];
-	display.textContent = inputArray;
 }
 
 //Button Functionality
@@ -30,23 +26,28 @@ buttons.forEach((button) => {
 	button.addEventListener("click", () => {
 		if (button.id === "btnEqual") {
 			saveInput();
+			refreshDisplay(...inputArray);
 		} else {
 			modifyDisplay(button.textContent);
 			if (inputArray.length < 3) {
-				console.log("less than 3")
+				console.log("less than 3");
 				inputArray.push(button.textContent);
 			} else {
-				console.log("greater than 3")
+				console.log("greater than 3");
 				saveInput();
 				inputArray.push(button.textContent);
-			} 
-			
+				refreshDisplay(inputArray.join("").toString());
+			}
 		}
 	});
 });
 
 // Display functionality
 let display = document.querySelector("#display");
+
+function refreshDisplay(input) {
+	display.textContent = input;
+}
 
 function modifyDisplay(input) {
 	if (display.textContent === "0.00") {
