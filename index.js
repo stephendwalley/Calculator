@@ -32,8 +32,15 @@ buttons.forEach((button) => {
 			saveInput();
 		} else {
 			modifyDisplay(button.textContent);
-			inputArray.push(button.textContent);
-			console.log(button.id);
+			if (inputArray.length < 3) {
+				console.log("less than 3")
+				inputArray.push(button.textContent);
+			} else {
+				console.log("greater than 3")
+				saveInput();
+				inputArray.push(button.textContent);
+			} 
+			
 		}
 	});
 });
@@ -43,13 +50,9 @@ let display = document.querySelector("#display");
 
 function modifyDisplay(input) {
 	if (display.textContent === "0.00") {
-		console.log("it is 0!");
 		display.textContent = input;
-		// storeNumber(input);
 	} else {
-		console.log("it is not 0!");
 		display.textContent += input;
-		// storeNumber(input);
 	}
 }
 
