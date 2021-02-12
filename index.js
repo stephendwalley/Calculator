@@ -7,16 +7,16 @@ function add(a, b) {
 function subtract(a, b) {
 	console.log(a - b);
 	inputArray = [a - b];
-} 
+}
 
 function multiply(a, b) {
-	console.log(a * b);
 	inputArray = [a * b];
 }
 
 function divide(a, b) {
-	console.log(a / b);
-	inputArray = [a / b];
+	let roundedAnswer = Math.round((a / b) * 100) / 100;
+	//inputArray = [...roundedAnswer];
+	console.log(roundedAnswer);
 }
 
 //Button Functionality
@@ -28,19 +28,11 @@ buttons.forEach((button) => {
 			saveInput();
 			refreshDisplay(...inputArray);
 		} else if (button.id === "btnClear") {
-			inputArray = []
+			inputArray = [];
 			display.textContent = "0.00";
 		} else {
 			modifyDisplay(button.textContent);
-			if (inputArray.length < 3) {
-				console.log("less than 3");
-				inputArray.push(button.textContent);
-			} else {
-				console.log("greater than 3");
-				saveInput();
-				inputArray.push(button.textContent);
-				refreshDisplay(inputArray.join("").toString());
-			}
+			saveInput();
 		}
 	});
 });
@@ -75,6 +67,17 @@ function saveInput() {
 	let adjustedString = numberString.split(" ");
 	console.log(adjustedString);
 	operate.apply(this, adjustedString);
+
+	if (adjustedString.length < 3) {
+		console.log("less than 3");
+		inputArray.push(button.textContent);
+	} else if (adjustedString.length > 3) {
+		console.log("greater than 3");
+		inputArray.push(button.textContent);
+		refreshDisplay(inputArray.join("").toString());
+	} else {
+		console.log("error with array length");
+	}
 }
 
 function operate(a, operator, b) {
