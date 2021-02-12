@@ -9,11 +9,11 @@ function subtract(a, b) {
 }
 
 function multiply(a, b) {
-	return a * b;
+	console.log(a * b);
 }
 
 function divide(a, b) {
-	return a / b;
+	console.log(a / b);
 }
 
 //Button Functionality
@@ -65,7 +65,7 @@ function saveInput() {
 
 function operate(a, operator, b) {
 	if (operator === "+") {
-		add(a, b);
+		add(parseFloat(a), parseFloat(b));
 		console.log("It is adding!");
 	} else if (operator === "−") {
 		subtract(a, b);
