@@ -1,19 +1,26 @@
 // Base Calculation Functions
 
 function add(a, b) {
-	console.log(a +b);
+	inputArray = [a + b];
+	display.textContent = inputArray;
 }
 
 function subtract(a, b) {
 	console.log(a - b);
+	inputArray = [a - b];
+	display.textContent = inputArray;
 }
 
 function multiply(a, b) {
 	console.log(a * b);
+	inputArray = [a * b];
+	display.textContent = inputArray;
 }
 
 function divide(a, b) {
 	console.log(a / b);
+	inputArray = [a / b];
+	display.textContent = inputArray;
 }
 
 //Button Functionality
