@@ -7,7 +7,7 @@ function add(a, b) {
 function subtract(a, b) {
 	console.log(a - b);
 	inputArray = [a - b];
-}
+} 
 
 function multiply(a, b) {
 	console.log(a * b);
@@ -27,6 +27,9 @@ buttons.forEach((button) => {
 		if (button.id === "btnEqual") {
 			saveInput();
 			refreshDisplay(...inputArray);
+		} else if (button.id === "btnClear") {
+			inputArray = []
+			display.textContent = "0.00";
 		} else {
 			modifyDisplay(button.textContent);
 			if (inputArray.length < 3) {
