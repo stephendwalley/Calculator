@@ -27,9 +27,12 @@ buttons.forEach((button) => {
 		if (button.id === "btnEqual") {
 			saveInput();
 			refreshDisplay(...inputArray);
+<<<<<<< HEAD
 		} else if (button.id === "btnClear") {
 			inputArray = [];
 			display.textContent = "0.00";
+=======
+>>>>>>> parent of d234e44 (Working clear button)
 		} else {
 			modifyDisplay(button.textContent);
 			saveInput();
