@@ -8,41 +8,46 @@
 		<title>Calculator</title>
 	</head>
 	<body>
-		<div class="calculator">
-			<div id="display">0.00</div>
-
-			<ul class="flex">
-				<div class="numbers-grid">
-					<li><button id="btn1" class="button">1</button></li>
-					<li><button id="btn2" class="button">2</button></li>
-					<li><button id="btn3" class="button">3</button></li>
-					<li>
-						<button id="btnAdd" class="button-secondary">+</button>
-					</li>
-					<li><button id="btn4" class="button">4</button></li>
-					<li><button id="btn5" class="button">5</button></li>
-					<li><button id="btn6" class="button">6</button></li>
-					<li>
-						<button id="btnSubtract" class="button-secondary">−</button>
-					</li>
-					<li><button id="btn7" class="button">7</button></li>
-					<li><button id="btn8" class="button">8</button></li>
-					<li><button id="btn9" class="button">9</button></li>
-					<li>
-						<button id="btnMultiply" class="button-secondary">×</button>
-					</li>
-					<li><button id="btn0" class="button">0</button></li>
-					<li>
-						<button id="btnClear" class="button-secondary">C</button>
-					</li>
-					<li>
-						<button id="btnEqual" class="button-secondary">=</button>
-					</li>
-					<li>
-						<button id="btnDivide" class="button-secondary">÷</button>
-					</li>
+		<div class="main">
+			<div class="calculator">
+				<div id="display">
+					<div id="operatorDisplay">2+4</div>
+					<div id="mainDisplay">0.00</div>
 				</div>
-			</ul>
+				<div class="numbers-grid">
+					<button id="btnClear" class="button-tertiary">AC</button>
+					<button id="btnPercent" class="button-tertiary">%</button>
+					<button id="btnDivide" class="button-secondary">÷</button>
+					<button id="btn7" class="button">7</button>
+					<button id="btn8" class="button">8</button>
+					<button id="btn9" class="button">9</button>
+					<button id="btnMultiply" class="button-secondary">×</button>
+					<button id="btn4" class="button">4</button>
+					<button id="btn5" class="button">5</button>
+					<button id="btn6" class="button">6</button>
+					<button id="btnSubtract" class="button-secondary">−</button>
+					<button id="btn1" class="button">1</button>
+					<button id="btn2" class="button">2</button>
+					<button id="btn3" class="button">3</button>
+					<button id="btnAdd" class="button-secondary">+</button>
+					<button id="btn0" class="button">0</button>
+					<button id="btnDecimal" class="button">.</button>
+					<button id="btnBackspace" class="button">Del</button>
+					<button id="btnEqual" class="button-secondary">=</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<h1 class="credit">
+				Designed & Built by @stephendwalley |
+				<a class="link" href="https://github.com/stephendwalley"
+					><img
+						class="githubImage"
+						src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+						alt="GithubLogo"
+				/></a>
+			</h1>
 		</div>
 		<script src="index.js"></script>
 	</body>
