@@ -44,9 +44,13 @@ buttons.forEach((button) => {
 			inputString = "";
 			mainDisplay.textContent = "0.00";
 			operatorDisplay.textContent = "";
-		} else {
-			operatorDisplay.textContent += button.textContent;
-			inputString += button.textContent;
+		} else if (
+			inputString.includes("+") ||
+			inputString.includes("−") ||
+			inputString.includes("×") ||
+			inputString.includes("÷")
+		) {
+			console.log("the string already has an operator");
 			console.log(inputString);
 
 			if (
@@ -55,10 +59,28 @@ buttons.forEach((button) => {
 				button.textContent == "×" ||
 				button.textContent == "÷"
 			) {
-				console.log("button is an operator");
-				return;
+				operatorDisplay.textContent += button.textContent;
+				calculateAnswer();
+				inputString += button.textContent;
 			} else {
+				operatorDisplay.textContent += button.textContent;
+				inputString += button.textContent;
+				console.log(inputString);
+			}
+		} else {
+			if (
+				button.textContent != "+" ||
+				button.textContent != "−" ||
+				button.textContent != "×" ||
+				button.textContent != "÷"
+			) {
+				operatorDisplay.textContent += button.textContent;
+				inputString += button.textContent;
+				console.log(inputString);
 				updateMainDisplay(button.textContent);
+			} else {
+				operatorDisplay.textContent += button.textContent;
+				inputString += button.textContent;
 			}
 		}
 	});
@@ -66,32 +88,24 @@ buttons.forEach((button) => {
 	function calculateAnswer() {
 		if (inputString.includes("+")) {
 			let operatorPosition = inputString.indexOf("+");
-			console.log(inputString.substring(0, operatorPosition));
-			console.log(inputString.substring(operatorPosition + 1));
 			add(
 				inputString.substring(0, operatorPosition),
 				inputString.substring(operatorPosition + 1)
 			);
 		} else if (inputString.includes("−")) {
 			let operatorPosition = inputString.indexOf("−");
-			console.log(inputString.substring(0, operatorPosition));
-			console.log(inputString.substring(operatorPosition + 1));
 			subtract(
 				inputString.substring(0, operatorPosition),
 				inputString.substring(operatorPosition + 1)
 			);
 		} else if (inputString.includes("×")) {
 			let operatorPosition = inputString.indexOf("×");
-			console.log(inputString.substring(0, operatorPosition));
-			console.log(inputString.substring(operatorPosition + 1));
 			multiply(
 				inputString.substring(0, operatorPosition),
 				inputString.substring(operatorPosition + 1)
 			);
 		} else if (inputString.includes("÷")) {
 			let operatorPosition = inputString.indexOf("÷");
-			console.log(inputString.substring(0, operatorPosition));
-			console.log(inputString.substring(operatorPosition + 1));
 			divide(
 				inputString.substring(0, operatorPosition),
 				inputString.substring(operatorPosition + 1)
