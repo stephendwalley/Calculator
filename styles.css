@@ -44,6 +44,11 @@ body {
 	border: none;
 }
 
+.button:hover {
+	font-size: 22px;
+	border: none;
+}
+
 .button-secondary {
 	padding: 16px 32px;
 	font-family: Roboto, sans-serif;
