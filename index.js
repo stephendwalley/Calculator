@@ -46,6 +46,8 @@ buttons.forEach((button) => {
 			inputString = "";
 			mainDisplay.textContent = "0.00";
 			operatorDisplay.textContent = "";
+		} else if (button.id === "btnDel") {
+			removeLastInput();
 		} else if (
 			inputString.includes("+") ||
 			inputString.includes("−") ||
@@ -82,7 +84,6 @@ buttons.forEach((button) => {
 				inputString += button.textContent;
 				updateMainDisplay(button.textContent);
 				console.log(inputString);
-				
 			} else {
 				operatorDisplay.textContent += button.textContent;
 				inputString += button.textContent;
@@ -90,34 +91,55 @@ buttons.forEach((button) => {
 			}
 		}
 	});
-
-	function calculateAnswer() {
-		if (inputString.includes("+")) {
-			let operatorPosition = inputString.indexOf("+");
-			add(
-				inputString.substring(0, operatorPosition),
-				inputString.substring(operatorPosition + 1)
-			);
-		} else if (inputString.includes("−")) {
-			let operatorPosition = inputString.indexOf("−");
-			subtract(
-				inputString.substring(0, operatorPosition),
-				inputString.substring(operatorPosition + 1)
-			);
-		} else if (inputString.includes("×")) {
-			let operatorPosition = inputString.indexOf("×");
-			multiply(
-				inputString.substring(0, operatorPosition),
-				inputString.substring(operatorPosition + 1)
-			);
-		} else if (inputString.includes("÷")) {
-			let operatorPosition = inputString.indexOf("÷");
-			divide(
-				inputString.substring(0, operatorPosition),
-				inputString.substring(operatorPosition + 1)
-			);
-		}
-	}
 });
+
+function calculateAnswer() {
+	if (inputString.includes("+")) {
+		let operatorPosition = inputString.indexOf("+");
+		add(
+			inputString.substring(0, operatorPosition),
+			inputString.substring(operatorPosition + 1)
+		);
+	} else if (inputString.includes("−")) {
+		let operatorPosition = inputString.indexOf("−");
+		subtract(
+			inputString.substring(0, operatorPosition),
+			inputString.substring(operatorPosition + 1)
+		);
+	} else if (inputString.includes("×")) {
+		let operatorPosition = inputString.indexOf("×");
+		multiply(
+			inputString.substring(0, operatorPosition),
+			inputString.substring(operatorPosition + 1)
+		);
+	} else if (inputString.includes("÷")) {
+		let operatorPosition = inputString.indexOf("÷");
+		divide(
+			inputString.substring(0, operatorPosition),
+			inputString.substring(operatorPosition + 1)
+		);
+	}
+}
+
+function removeLastInput() {
+	if (inputString.length == 1) {
+		console.log("string is 1 length");
+		inputString = "0";
+		mainDisplay.textContent = "0.00";
+		operatorDisplay.textContent = operatorDisplay.textContent
+			.toString()
+			.slice(0, -1);
+	} else {
+		let removedInputString = inputString.toString().slice(0, -1);
+		inputString = removedInputString;
+
+		operatorDisplay.textContent = operatorDisplay.textContent
+			.toString()
+			.slice(0, -1);
+		mainDisplay.textContent = mainDisplay.textContent
+			.toString()
+			.slice(0, -1);
+	}
+}
 
 // OPERATORS − × ÷ +
