@@ -16,8 +16,15 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-	mainDisplay.textContent = Math.round((a / b) * 100) / 100;
-	inputString = (Math.round((a / b) * 100) / 100).toString();
+	if (b == 0) {
+		inputString = "";
+		mainDisplay.textContent = "0.00";
+		operatorDisplay.textContent = "";
+		mainDisplay.textContent = "Error";
+	} else {
+		mainDisplay.textContent = Math.round((a / b) * 100) / 100;
+		inputString = (Math.round((a / b) * 100) / 100).toString();
+	}
 }
 
 // Display functionality
