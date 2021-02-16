@@ -64,10 +64,12 @@ buttons.forEach((button) => {
 				operatorDisplay.textContent += button.textContent;
 				calculateAnswer();
 				inputString += button.textContent;
+				updateMainDisplay(button.textContent);
 			} else {
 				operatorDisplay.textContent += button.textContent;
 				inputString += button.textContent;
 				console.log(inputString);
+				updateMainDisplay(button.textContent);
 			}
 		} else {
 			if (
@@ -78,11 +80,13 @@ buttons.forEach((button) => {
 			) {
 				operatorDisplay.textContent += button.textContent;
 				inputString += button.textContent;
-				console.log(inputString);
 				updateMainDisplay(button.textContent);
+				console.log(inputString);
+				
 			} else {
 				operatorDisplay.textContent += button.textContent;
 				inputString += button.textContent;
+				updateMainDisplay(button.textContent);
 			}
 		}
 	});
