@@ -2,22 +2,22 @@
 
 function add(a, b) {
 	mainDisplay.textContent = +a + +b;
-	inputString = +a + +b;
+	inputString = (+a + +b).toString();
 }
 
 function subtract(a, b) {
 	mainDisplay.textContent = a - b;
-	inputString = a - b;
+	inputString = (a - b).toString();
 }
 
 function multiply(a, b) {
 	mainDisplay.textContent = a * b;
-	inputString = a * b;
+	inputString = (a * b).toString();
 }
 
 function divide(a, b) {
 	mainDisplay.textContent = Math.round((a / b) * 100) / 100;
-	inputString = Math.round((a / b) * 100) / 100;
+	inputString = (Math.round((a / b) * 100) / 100).toString();
 }
 
 // Display functionality
@@ -30,6 +30,8 @@ function updateMainDisplay(displayNumber) {
 	} else {
 		mainDisplay.textContent += displayNumber;
 	}
+
+	mainDisplay.textContent = inputString;
 }
 
 //Button Functionality
